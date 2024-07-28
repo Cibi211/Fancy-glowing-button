@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Space+Grotesk:400,700&display=swap');
+
+:root{
+    --m:4rem;
+
+    --red: #E24C01;
+    --pink: #E3256A;
+    --blue:#242A7C;
+    --yellow:#E69D52;
+    --ox:#E24C01;
+
+}
+body{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin:0;
+    padding: 19px;
+
+}
+button{
+    border: calc(0.08*var(--m))solid transparent;
+    position: relative;
+    color: white;
+    font-family: 'Space Grotesk';
+    font-size: var(--m);
+    border-radius: calc(2*var(--m)) ;
+    padding:calc(0.5*var(--m)) calc(1*var(--m));
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    background:linear-gradient(#121213,#121213),linear-gradient(#121213 50% ,rgba(18,18,19,0.6) 80%,rgba(18,18,19,0)),linear-gradient(90deg, var(--pink),var(--red),var(--blue),var(--yellow),var(--ox));
+    background-origin:border-box ;
+    background-clip:padding-box,border-box,border-box ;
+    background-size:200% ;
+animation: animate 2s infinite linear;
+
+}
+button::before{
+    content: '';
+    background: linear-gradient(90deg, var(--pink),var(--red),var(--pink),var(--blue),var(--yellow),var(--ox)) ;
+    height: 30%;
+    width: 60%;
+    position: absolute;
+    bottom: -20%;
+    z-index: -5;
+    background-size: 200%;
+    animation: animate 2s infinite linear;
+    filter: blur(calc(0.8*var(--m)));
+
+}
+button:hover ,button:hover::before{
+    animation:animate 0.5s infinite linear;
+}
+@keyframes animate{
+    
+    0%{background-position: 0}
+    100%{background-position: 200%;}
+}
+@media screen and(max-width:100px) {
+    :root{
+        --m:2rem;
+    }
+    
+}
